@@ -6,7 +6,7 @@ import {
   EMAIL_REGEX_ERROR,
   PW_REGEX,
   PW_REGEX_ERROR,
-} from "@/libs/constants";
+} from "@/lib/constants";
 
 const formSchema = z.object({
   email: z.string().email().toLowerCase().regex(EMAIL_REGEX, EMAIL_REGEX_ERROR),
