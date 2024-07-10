@@ -1,48 +1,24 @@
-"use client";
+import Link from "next/link";
+import "@/lib/db";
 
-import { useFormState, useFormStatus } from "react-dom";
-import FormInput from "./components/form-input";
-import { handleForm } from "./actions";
-import FormButton from "./components/form-btn";
-
-export default function Login() {
-  const [state, action] = useFormState(handleForm, null);
-  const { data } = useFormStatus();
-
+export default function Home() {
   return (
-    <div className="flex flex-col items-center gap-10 mt-10">
-      <span className="text-3xl">➰👀➰</span>
-      <form action={action}>
-        <div className="flex flex-col gap-3">
-          <FormInput
-            name="email"
-            type="Email"
-            placeholder="Email"
-            required
-            errors={state?.fieldErrors.email}
-          />
-          <FormInput
-            name="username"
-            type="text"
-            placeholder="Username"
-            required
-            errors={state?.fieldErrors.username}
-          />
-          <FormInput
-            name="password"
-            type="password"
-            placeholder="Password"
-            required
-            errors={state?.fieldErrors.password}
-          />
+    <div className="flex flex-col items-center justify-between min-h-screen p-6">
+      <div className="my-auto flex flex-col items-center gap-2 *:font-medium">
+        <span className="text-9xl">🥨</span>
+        <h2 className="text-2xl">챌린지에 어서오세요!</h2>
+      </div>
+      <div className="flex flex-col items-center gap-3 w-full">
+        <Link href="/create-account" className="primary-btn py-2.5 text-lg">
+          시작하기
+        </Link>
+        <div className="flex gap-2">
+          <span>이미 계정이 있나요?</span>
+          <Link href="/login" className="hover:underline">
+            로그인
+          </Link>
         </div>
-        <FormButton text="Log in" />
-        {data && (
-          <div className="w-full h-10 bg-green-600 rounded-2xl text-white text-center leading-10 -translate-y-1 transition">
-            Welcome back!
-          </div>
-        )}
-      </form>
+      </div>
     </div>
   );
 }

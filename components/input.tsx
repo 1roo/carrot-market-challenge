@@ -8,7 +8,7 @@ import { FaUser } from "react-icons/fa";
 import { FaKey } from "react-icons/fa";
 import { InputHTMLAttributes } from "react";
 
-export default function FormInput({
+export default function Input({
   name,
   errors = [],
   ...rest
