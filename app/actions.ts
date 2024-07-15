@@ -4,7 +4,7 @@ import { z } from "zod";
 import {
   EMAIL_REGEX,
   EMAIL_REGEX_ERROR,
-  PW_REGEX,
+  PASSWORD_REGEX,
   PW_REGEX_ERROR,
 } from "@/lib/constants";
 
@@ -17,7 +17,7 @@ const formSchema = z.object({
   password: z
     .string()
     .min(10, "Password should be at least 10 characters Long.")
-    .regex(PW_REGEX, PW_REGEX_ERROR),
+    .regex(PASSWORD_REGEX, PW_REGEX_ERROR),
 });
 
 export async function handleForm(prevState: any, formData: FormData) {
